@@ -4,14 +4,12 @@ class Solution:
     def longestPalindrome(self, s):
         # S = "abba", T = "^#a#b#b#a#$"
         T = '#'.join('^{}$'.format(s))
-        print(T)
         n = len(T)
         P = [0] * n
         C = R = 0
         for i in range (1, n-1):
-            print(i, C, R, P[i])
+            #print(i, C, R, P[i])
             P[i] = min(R-i, P[2*C -i]) if R > i else 0 # equals to i' = C - (i-C)
-            print 2*C-i
             while T[i +P[i] +1] == T[i -P[i] -1]:
                 P[i] +=1
 
@@ -19,10 +17,9 @@ class Solution:
                 C, R = i, i +P[i]
                 if R == n-2:
                     break;
-            print(i, C, R, P[i])
         maxLen, center = max((n, i) for i, n in enumerate(P))
         return s[(center -maxLen)//2 : (center +maxLen)//2]
-print Solution().longestPalindrome('ccaabbaacddefgf')
+
 #    def longestPalindrome(self, s):
 #        if len(s) < 2:
 #            return s
