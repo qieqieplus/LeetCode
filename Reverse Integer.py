@@ -2,11 +2,9 @@ class Solution:
     # @param x, an integer
     # @return an integer
     def reverse(self, x):
-        result = 0
-        symbol = 1
+        result, symbol = 0, 1
         if x < 0:
-            symbol = -1
-            x = -x
+            symbol, x = -1, -x
         while x:
             result = result * 10 + x % 10
             x /= 10
