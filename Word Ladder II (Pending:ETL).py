@@ -42,7 +42,6 @@ class Solution:
 	
 	
 	def BFS(self, start, end, dict):
-
 		def find(searched, end, dict):
 			searching = [];
 			for path in searched:
